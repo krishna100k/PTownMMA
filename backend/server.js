@@ -96,3 +96,7 @@ app.get("/api/uploads", async (req, res) => {
 });
 
 app.use("/uploads", express.static("uploads"));
+
+app.get("/", (req, res) => {
+  res.send("Backend is Working!!!")
+})
