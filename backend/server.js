@@ -24,7 +24,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: "https://p-town-west-mma-azure.vercel.app",
+    origin: "https://p-town-mma.vercel.app",
     credentials: true,
   })
 );
