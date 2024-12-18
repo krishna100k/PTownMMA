@@ -24,7 +24,7 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    // "http://localhost:5173",
+    // origin : "http://localhost:5173",
     origin : 'https://p-town-mma.vercel.app',
     credentials: true,
   })
