@@ -24,7 +24,8 @@ app.use(cookieParser());
 
 app.use(
   cors({
-    origin: "https://p-town-mma.vercel.app",
+    // "http://localhost:5173",
+    origin : 'https://p-town-mma.vercel.app/',
     credentials: true,
   })
 );
@@ -96,7 +97,3 @@ app.get("/api/uploads", async (req, res) => {
 });
 
 app.use("/uploads", express.static("uploads"));
-
-app.get("/", (req, res) => {
-  res.send("Backend is Working!!!")
-})
