@@ -33,10 +33,24 @@ export const register = async (req, res) => {
 
     const token = createToken(user._id, user.role);
 
-    // Set token and userName in cookies
-    res.cookie("token", token);
-    res.cookie("userName", user.name);
-    res.cookie("role", user.role); // Ensure role is also set for the user
+    res.cookie("jwt_token", token, {
+      maxAge: 3 * 24 * 60 * 60 * 1000,
+      httpOnly: true, 
+      secure: true,   
+      sameSite: 'None', 
+    });
+    
+    res.cookie("userName", user.name, {
+      maxAge: 3 * 24 * 60 * 60 * 1000,
+      secure: true,
+      sameSite: 'None',
+    });
+    
+    res.cookie("role", user.role, {
+      maxAge: 3 * 24 * 60 * 60 * 1000,
+      secure: true,
+      sameSite: 'None',
+    });
 
     res.status(201).json({
       message: "User registered successfully",
